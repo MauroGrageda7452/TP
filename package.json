@@ -2,8 +2,8 @@
   "name": "tp",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node index.js",
-    "start": "node index.js"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.17.1",

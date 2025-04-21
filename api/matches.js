@@ -89,7 +89,7 @@ module.exports = async (req, res) => {
 
     const matches = matchesResponse.data.matches
       .filter(match => DateTime.fromISO(match.utcDate) > now)
-      .slice(0, 5)
+      .slice(0, 10)
       .map(match => {
         const utcTime = DateTime.fromISO(match.utcDate, { zone: 'utc' });
         const localTime = utcTime.setZone(timezone);
@@ -97,7 +97,7 @@ module.exports = async (req, res) => {
         return {
           homeTeam: match.homeTeam.name,
           awayTeam: match.awayTeam.name,
-          stadium: match.venue || 'Estadio no especificado',
+          // stadium: match.venue || 'Estadio no especificado',
           utcKickoff: utcTime.toFormat('yyyy-LL-dd HH:mm'),
           localKickoff: localTime.toFormat('yyyy-LL-dd HH:mm'),
         };
