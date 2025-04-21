@@ -67,7 +67,7 @@
 const axios = require('axios');
 const { DateTime } = require('luxon');
 
-const FOOTBALL_API_KEY = process.env.FOOTBALL_API_KEY;
+const FOOTBALL_API_KEY = '281755bf5604412f86a0dae56d60eb0a';
 
 module.exports = async (req, res) => {
   try {
