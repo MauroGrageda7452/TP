@@ -63,7 +63,6 @@
 </head>
 <body>
   <h1>⚽ Próximos Partidos de la Premier League</h1>
-  <div class="timezone-info" id="tz"></div>
   <div class="location-info" id="location"></div>
   <div id="matches"></div>
 
@@ -72,20 +71,15 @@
       try {
         const res = await fetch('https://tp-umber-gamma.vercel.app/api/matches');
         const data = await res.json();
-
-        // Mostrar la zona horaria
-        const tz = document.getElementById('tz');
-        tz.innerHTML = `🕓 Mostrando horas locales según tu zona horaria: <strong>${data.timezone || 'No disponible'}</strong>`;
-
         // Mostrar la ciudad, país y UTC offset si están disponibles
         const location = document.getElementById('location');
         const city = data.city || 'No disponible';
         const country = data.country || 'No disponible';
-        const utcOffset = data.utcOffset !== undefined ? `UTC ${data.utcOffset}` : 'No disponible';
+        const utcOffset = data.utcOffset !== undefined ? `${data.utcOffset}` : 'No disponible';
 
         // Alinear la información en una sola línea
         location.innerHTML = `
-          🌍 Tu ubicación: <strong>${city}, ${country}</strong> | 
+          🌍 Tu ubicación: <strong>${country}</strong> | 
           🕰️ ${utcOffset}
         `;
 
